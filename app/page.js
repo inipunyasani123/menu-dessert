@@ -81,7 +81,7 @@ export default function Halaman() {
                   </div>
                   <div className="mt-5 flex flex-wrap items-center gap-3">
                     <span className="harga text-[1.1rem]">{rupiah(unggulan.harga)}</span>
-                    <TombolPilih id={unggulan.id} className="tombol tombol-tinta" aria-label={`Tambah ${unggulan.nama}, pilih rasa gelato`}>Pilih rasa gelatonya</TombolPilih>
+                    <TombolPilih id={unggulan.id} className="tombol tombol-tinta" aria-label={`Pilih rasa gelatonya untuk ${unggulan.nama}`}>Pilih rasa gelatonya</TombolPilih>
                   </div>
                 </div>
               </div>

@@ -9,7 +9,7 @@
   --color-krim-2: #fdeedd;
   --color-tinta: #3a2420;
   --color-tinta-2: #6b4f47;
-  --color-tinta-3: #8c746c;
+  --color-tinta-3: #7d6760; /* ≥4,6:1 di krim, krim-2, dan putih */
   --color-garis: #efdccb;
 
   /* Pastel per kategori: jenuh (chip), tint (kartu), tua (teks aksen; semua ≥4,5:1 di atas tint & krim) */

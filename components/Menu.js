@@ -345,9 +345,9 @@ export default function Menu() {
             <div className="gelombang mt-3 rounded-b-[var(--radius-kartu)] px-5 pb-4 pt-3 sm:px-7" style={{ background: warnaVar(k), '--gel': warnaVar(k) }}>
               <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-1">
                 <h2 id={`judul-${k.id}`} className="text-[2rem] sm:text-[2.5rem]">{k.nama}</h2>
-                <p className="font-display text-sm tracking-wide text-tinta/70">{daftar.length} pilihan</p>
+                <p className="font-display text-sm tracking-wide text-tinta/90">{daftar.length} pilihan</p>
               </div>
-              <p className="mt-1.5 max-w-2xl text-[0.9rem] leading-snug text-tinta/85">{k.catatan}</p>
+              <p className="mt-1.5 max-w-2xl text-[0.9rem] leading-snug text-tinta/90">{k.catatan}</p>
             </div>
             <div className="mt-4">
               {k.id === 'bowl' ? (
