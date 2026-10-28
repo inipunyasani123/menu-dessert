@@ -2,6 +2,7 @@ import { site, faq, alergen, menu, kategori, cariItem, RASA } from '@/lib/data';
 import { rupiah, labelHari } from '@/lib/format';
 import Lintang, { Tanda, MeterManis } from '@/components/Lintang';
 import Ilustrasi from '@/components/Ilustrasi';
+import FotoMenu from '@/components/FotoMenu';
 import TombolPilih from '@/components/TombolPilih';
 import Meja from '@/components/Meja';
 import StatusBuka from '@/components/StatusBuka';
@@ -67,7 +68,9 @@ export default function Halaman() {
             <article className="gelombang mt-12 rounded-b-[var(--radius-kartu)] bg-stroberi-muda px-5 pb-6 pt-5 shadow-[var(--shadow-lembut)] sm:px-8 sm:pb-8 sm:pt-6" style={{ '--gel': 'var(--color-stroberi-muda)', '--gel-r': '14px' }} aria-labelledby="judul-minggu-ini">
               <div className="grid gap-5 sm:grid-cols-[auto_1fr] sm:items-center sm:gap-8">
                 <div className="mx-auto grid h-44 w-44 place-items-center rounded-full bg-white/80 shadow-[inset_0_0_0_6px_var(--color-stroberi)] sm:h-52 sm:w-52">
-                  <Ilustrasi gambar={unggulan.gambar} className="h-36 w-36 sm:h-44 sm:w-44" />
+                  <FotoMenu id="hero" alt={`${unggulan.nama}: croffle hangat dengan satu scoop es krim`} priority sizes="(min-width: 640px) 176px, 144px" className="h-36 w-36 rounded-full ring-4 ring-white sm:h-44 sm:w-44">
+                    <Ilustrasi gambar={unggulan.gambar} className="h-36 w-36 sm:h-44 sm:w-44" />
+                  </FotoMenu>
                 </div>
                 <div>
                   <p className="label-manis flex items-center gap-1.5 !text-stroberi-tua"><Lintang className="h-3.5 w-3.5" /> Lintang minggu ini</p>

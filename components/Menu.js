@@ -7,6 +7,7 @@ import { useNampan, pilihanAwal, terpilih, toggleMulti, hitungTambahan, grupKura
 import { Plus, Minus, Cari, Tutup, Centang, Dingin, Hangat, Daun } from './Ikon';
 import Lintang, { MeterManis } from './Lintang';
 import Ilustrasi from './Ilustrasi';
+import FotoMenu, { adaFoto } from './FotoMenu';
 
 const SARING = [
   { id: 'favorit', label: 'Favorit', ikon: Lintang, uji: (m) => m.tag?.includes('favorit') },
@@ -52,9 +53,13 @@ function Kartu({ m, k, onPilih }) {
           {m.habis ? <span className="rounded-full bg-tinta px-2 py-0.5 font-display text-[0.68rem] uppercase tracking-wider text-krim">Habis</span> : m.tag.map((t) => <Tag key={t} t={t} />)}
         </div>
       )}
-      <div className={`grid place-items-center rounded-[18px] bg-white/70 ${lebar ? 'h-36 sm:h-auto sm:w-40 sm:shrink-0' : 'h-28'} ${m.habis ? 'opacity-60' : ''}`}>
-        <Ilustrasi gambar={m.gambar} className={lebar ? 'h-32 w-32 sm:h-36 sm:w-36' : 'h-24 w-24'} />
-      </div>
+      {adaFoto(m.id) ? (
+        <FotoMenu id={m.id} sizes={lebar ? '(min-width: 640px) 160px, 90vw' : '(min-width: 640px) 240px, 45vw'} className={`rounded-[18px] ${lebar ? 'h-44 sm:h-auto sm:min-h-40 sm:w-40 sm:shrink-0' : 'aspect-square'} ${m.habis ? 'opacity-60 grayscale' : ''}`} />
+      ) : (
+        <div className={`grid place-items-center rounded-[18px] bg-white/70 ${lebar ? 'h-36 sm:h-auto sm:w-40 sm:shrink-0' : 'h-28'} ${m.habis ? 'opacity-60' : ''}`}>
+          <Ilustrasi gambar={m.gambar} className={lebar ? 'h-32 w-32 sm:h-36 sm:w-36' : 'h-24 w-24'} />
+        </div>
+      )}
       <div className="flex min-w-0 flex-1 flex-col">
         <h3 className="text-[1.08rem] leading-[1.1] sm:text-[1.2rem]">{m.nama}</h3>
         <p className={`mt-1 text-[0.8rem] leading-snug text-tinta-2 ${lebar ? '' : 'line-clamp-2'}`}>{m.deskripsi}</p>
@@ -103,9 +108,11 @@ function BagianBowl({ k, daftar, onPilih }) {
           {daftar.map((m) => (
             <li key={m.id} className={`relative flex flex-col rounded-[var(--radius-kartu)] bg-white p-3 shadow-[var(--shadow-lembut)] ${m.habis ? 'saturate-50' : ''}`}>
               {m.tag?.includes('favorit') && <div className="absolute left-3 top-3 z-10"><Tag t="favorit" /></div>}
-              <div className="grid h-32 place-items-center">
-                <Ilustrasi gambar={m.gambar} className="h-28 w-28" />
-              </div>
+              <FotoMenu id={m.id} sizes="(min-width: 640px) 240px, 45vw" className="mb-2 aspect-square rounded-[14px]">
+                <div className="grid h-32 place-items-center">
+                  <Ilustrasi gambar={m.gambar} className="h-28 w-28" />
+                </div>
+              </FotoMenu>
               <h3 className="text-[1.15rem]">{m.nama}</h3>
               <p className="mt-1 text-[0.8rem] leading-snug text-tinta-2">{m.deskripsi}</p>
               <div className="mt-1.5"><MeterManis n={m.manis} /></div>
@@ -181,9 +188,11 @@ function LembarPilihan({ item, onTutup, onTambah }) {
             <Tutup className="h-5 w-5" />
           </button>
           <div className="flex items-end gap-4">
-            <div className="grid h-28 w-28 shrink-0 place-items-center rounded-[22px] bg-white/80">
-              <Ilustrasi gambar={item.gambar} ubahan={ubahanGambar(item, pilihan)} className="h-24 w-24" />
-            </div>
+            <FotoMenu id={item.id} sizes="112px" className="h-28 w-28 shrink-0 rounded-[22px]">
+              <div className="grid h-28 w-28 shrink-0 place-items-center rounded-[22px] bg-white/80">
+                <Ilustrasi gambar={item.gambar} ubahan={ubahanGambar(item, pilihan)} className="h-24 w-24" />
+              </div>
+            </FotoMenu>
             <div className="min-w-0 pb-1 pe-10">
               <p className="label-manis" style={{ color: warnaVar(k, '-tua') }}>{k?.nama}</p>
               <h2 id="judul-pilihan" className="mt-1 text-[1.6rem] leading-none">{item.nama}</h2>
