@@ -21,7 +21,7 @@ const warnaVar = (k, akhiran = '') => `var(--color-${k.warna}${akhiran})`;
 /** Tag Dingin / Hangat / Tanpa susu dengan ikon. */
 function TagSuhu({ m, kelas = '' }) {
   return (
-    <span className={`flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.7rem] font-bold ${kelas}`}>
+    <span className={`flex flex-wrap items-center gap-x-2 gap-y-1 text-[12px] font-bold ${kelas}`}>
       {m.suhu?.includes('dingin') && <span className="inline-flex items-center gap-0.5 text-langit-tua"><Dingin className="h-3.5 w-3.5" />Dingin</span>}
       {m.suhu?.includes('hangat') && <span className="inline-flex items-center gap-0.5 text-persik-tua"><Hangat className="h-3.5 w-3.5" />Hangat</span>}
       {m.nabati && <span className="inline-flex items-center gap-0.5 text-pistasio-tua"><Daun className="h-3.5 w-3.5" />Tanpa susu</span>}
@@ -33,7 +33,7 @@ function Tag({ t }) {
   const gaya = { favorit: 'bg-tinta text-krim', baru: 'bg-white text-stroberi-tua' };
   const teks = { favorit: 'Favorit', baru: 'Baru' };
   return (
-    <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-display text-[0.68rem] uppercase tracking-wider ${gaya[t]}`}>
+    <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-display text-[12px] uppercase tracking-wider ${gaya[t]}`}>
       {t === 'favorit' && <Lintang className="h-2.5 w-2.5 text-kuning" />}
       {teks[t]}
     </span>
@@ -50,7 +50,7 @@ function Kartu({ m, k, onPilih }) {
     >
       {(m.tag?.length || m.habis) && (
         <div className="absolute left-3 top-3 z-10 flex gap-1">
-          {m.habis ? <span className="rounded-full bg-tinta px-2 py-0.5 font-display text-[0.68rem] uppercase tracking-wider text-krim">Habis</span> : m.tag.map((t) => <Tag key={t} t={t} />)}
+          {m.habis ? <span className="rounded-full bg-tinta px-2 py-0.5 font-display text-[12px] uppercase tracking-wider text-krim">Habis</span> : m.tag.map((t) => <Tag key={t} t={t} />)}
         </div>
       )}
       {adaFoto(m.id) ? (

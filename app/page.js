@@ -127,7 +127,7 @@ export default function Halaman() {
                   <QR url={`${site.url}/?meja=${CONTOH_MEJA}`} className="h-40 w-40 text-tinta sm:h-44 sm:w-44" label={`Kode QR contoh untuk meja ${CONTOH_MEJA}`} />
                 </div>
                 <p className="mt-3 flex items-center justify-center gap-1 font-display text-sm text-stroberi-tua"><Lintang className="h-3 w-3" /> Pindai untuk memesan <Lintang className="h-3 w-3" /></p>
-                <p className="mt-1 text-[0.7rem] text-tinta-3">menu-dessert.pintuweb.id/?meja={CONTOH_MEJA}</p>
+                <p className="mt-1 text-[12px] text-tinta-3">menu-dessert.pintuweb.id/?meja={CONTOH_MEJA}</p>
               </div>
             </div>
           </div>
